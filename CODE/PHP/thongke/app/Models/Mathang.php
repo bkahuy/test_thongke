@@ -8,15 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Mathang extends Model
 {
     use HasFactory;
-    protected $fillable = ['ten_mat_hang', 'loai_mat_hang_id','gia'];
 
-    public function chitietdonhang() {
-        return $this->hasMany(Chitietdonhang::class);
+    protected $fillable = ['TenHang', 'DonGia', 'MaLoai'];
+
+    public function loaimathang()
+    {
+        return $this->belongsTo(LoaiMatHang::class, 'MaLoai', 'MaLoai');
     }
-    public function donhang() {
-        return $this->hasMany(Donhang::class);
+
+    public function chitietdonhang()
+    {
+        return $this->hasMany(ChiTietDonHang::class, 'MaHang', 'MaHang');
     }
-    public function loaimathang() {
-        return $this->belongsTo(Loaimathang::class);
+    public function donhangs()
+    {
+        return $this->belongsToMany(DonHang::class, 'ChiTietDonHang', 'MaHang', 'MaDH')
+            ->withPivot('SoLuong');
     }
+
+
 }

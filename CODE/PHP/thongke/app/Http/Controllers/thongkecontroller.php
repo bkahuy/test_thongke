@@ -23,20 +23,20 @@ class thongkecontroller extends Controller
 
         $ngay = $request->ngay;
 
-        // Truy vấn đơn hàng chi tiết theo ngày
-        $duLieu = DB::table('donhangs')
-            ->join('khachhangs', 'donhangs.khach_hang_id', '=', 'khachhangs.id')
-            ->join('chi_tiet_don_hangs', 'donhangs.id', '=', 'chi_tiet_don_hangs.don_hang_id')
-            ->join('mathangs', 'chi_tiet_don_hangs.mat_hang_id', '=', 'mathangs.id')
+        $duLieu = DB::table('DonHang')
+            ->join('KhachHang', 'DonHang.MaKH', '=', 'KhachHang.MaKH')
+            ->join('ChiTietDonHang', 'DonHang.MaDH', '=', 'ChiTietDonHang.MaDH')
+            ->join('MatHang', 'ChiTietDonHang.MaHang', '=', 'MatHang.MaHang')
             ->select(
-                'khachhangs.ten_khach_hang as ten_khach_hang',
-                'mathangs.ten_mat_hang as ten_mat_hang',
-                'chi_tiet_don_hangs.so_luong',
-                'mathangs.gia',
-                DB::raw('chi_tiet_don_hangs.so_luong * mathangs.gia as thanh_tien')
+                'KhachHang.TenKH as ten_khach_hang',
+                'MatHang.TenHang as ten_mat_hang',
+                'ChiTietDonHang.SoLuong as so_luong',
+                'MatHang.DonGia as gia',
+                DB::raw('ChiTietDonHang.SoLuong * MatHang.DonGia as thanh_tien')
             )
-            ->whereDate('donhangs.ngay_dat', $ngay)
+            ->whereDate('DonHang.NgayLap', $ngay)
             ->get();
+
 
 
         return view('ketqua', compact('duLieu', 'ngay'));

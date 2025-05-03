@@ -9,16 +9,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Donhang extends Model
 {
     use HasFactory;
-    protected $fillable = ['khach_hang_id', 'mat_hang_id', 'so_luong', 'ngay_dat'];
 
-    public function chitietdonhang(){
-        return $this->hasMany(Chitietdonhang::class);
+    protected $fillable = ['MaKH', 'MaHang', 'SoLuong', 'NgayLap'];
+
+    public function chitietdonhang() {
+        return $this->hasMany(ChiTietDonHang::class, 'MaDH', 'MaDH');
     }
-    public function khachhang(){
-        return $this->belongsTo(Khachhang::class);
+
+    public function khachhang() {
+        return $this->belongsTo(KhachHang::class, 'MaKH', 'MaKH');
     }
-    public function mathang(){
-        return $this->belongsTo(Mathang::class);
+
+    public function mathang() {
+        return $this->belongsTo(MatHang::class, 'MaHang', 'MaHang');
     }
+
 
 }

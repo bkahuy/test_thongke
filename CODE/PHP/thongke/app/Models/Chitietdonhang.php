@@ -8,14 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class ChiTietDonHang extends Model
 {
     use HasFactory;
-    protected $fillable = ['don_hang_id', 'mat_hang_id', 'so_luong'];
+
+    protected $fillable = ['MaDH', 'MaHang', 'SoLuong'];
 
     public function donhang() {
-        return $this->belongsTo(Donhang::class);
+        return $this->belongsTo(DonHang::class, 'MaDH', 'MaDH');
     }
 
     public function mathang() {
-        return $this->belongsTo(Mathang::class);
+        return $this->belongsTo(MatHang::class, 'MaHang', 'MaHang');
     }
+
 }
 

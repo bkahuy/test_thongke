@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Loaimathang extends Model
 {
     use HasFactory;
-    protected $fillable = ['ten_loai'];
+
+    protected $fillable = ['TenLoai'];
 
     public function mathang()
     {
-        return $this->belongsTo(Mathang::class);
+        return $this->hasMany(MatHang::class, 'MaLoai', 'MaLoai');
     }
+
 }
