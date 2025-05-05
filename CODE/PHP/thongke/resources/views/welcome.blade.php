@@ -28,11 +28,22 @@
             <form method="POST" action="{{ url('/thong-ke') }}">
                 @csrf
                 <div class="mb-3">
-                    <label for="ngay" class="form-label">Chọn ngày</label>
+                    <label for="ngaydau" class="form-label">Chọn ngày bắt đầu</label>
                     <input
                         type="date"
-                        name="ngay"
-                        id="ngay"
+                        name="ngaydau"
+                        id="ngaydau"
+                        required
+                        class="form-control"
+                    >
+                </div>
+
+                <div class="mb-3">
+                    <label for="ngaycuoi" class="form-label">Chọn ngày kết thúc</label>
+                    <input
+                        type="date"
+                        name="ngaycuoi"
+                        id="ngaycuoi"
                         required
                         class="form-control"
                     >
@@ -42,6 +53,7 @@
                     Thống kê
                 </button>
             </form>
+
         </div>
     </div>
 </div>

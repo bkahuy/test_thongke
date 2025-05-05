@@ -31,8 +31,10 @@
             panel1 = new Panel();
             btnThongKe = new Button();
             lbChonngay = new Label();
-            dtpChonngay = new DateTimePicker();
+            dtpChonngaydau = new DateTimePicker();
             dgvThongKe = new DataGridView();
+            label1 = new Label();
+            dtpChonngaycuoi = new DateTimePicker();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvThongKe).BeginInit();
             SuspendLayout();
@@ -40,9 +42,11 @@
             // panel1
             // 
             panel1.AutoScroll = true;
+            panel1.Controls.Add(dtpChonngaycuoi);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(btnThongKe);
             panel1.Controls.Add(lbChonngay);
-            panel1.Controls.Add(dtpChonngay);
+            panel1.Controls.Add(dtpChonngaydau);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(891, 30);
@@ -62,19 +66,19 @@
             // 
             lbChonngay.AutoSize = true;
             lbChonngay.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbChonngay.Location = new Point(52, 5);
+            lbChonngay.Location = new Point(29, 5);
             lbChonngay.Name = "lbChonngay";
-            lbChonngay.Size = new Size(73, 17);
+            lbChonngay.Size = new Size(99, 17);
             lbChonngay.TabIndex = 1;
-            lbChonngay.Text = "Chọn ngày:";
+            lbChonngay.Text = "Chọn ngày đầu:";
             lbChonngay.Click += label1_Click;
             // 
-            // dtpChonngay
+            // dtpChonngaydau
             // 
-            dtpChonngay.Location = new Point(137, 3);
-            dtpChonngay.Name = "dtpChonngay";
-            dtpChonngay.Size = new Size(200, 23);
-            dtpChonngay.TabIndex = 0;
+            dtpChonngaydau.Location = new Point(137, 3);
+            dtpChonngaydau.Name = "dtpChonngaydau";
+            dtpChonngaydau.Size = new Size(200, 23);
+            dtpChonngaydau.TabIndex = 0;
             // 
             // dgvThongKe
             // 
@@ -91,6 +95,23 @@
             dgvThongKe.ReadOnly = true;
             dgvThongKe.Size = new Size(891, 478);
             dgvThongKe.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(485, 6);
+            label1.Name = "label1";
+            label1.Size = new Size(101, 17);
+            label1.TabIndex = 2;
+            label1.Text = "Chọn ngày cuối:";
+            // 
+            // dtpChonngaycuoi
+            // 
+            dtpChonngaycuoi.Location = new Point(592, 3);
+            dtpChonngaycuoi.Name = "dtpChonngaycuoi";
+            dtpChonngaycuoi.Size = new Size(200, 23);
+            dtpChonngaycuoi.TabIndex = 2;
             // 
             // fQlythongke
             // 
@@ -114,8 +135,10 @@
 
         private Panel panel1;
         private Label lbChonngay;
-        private DateTimePicker dtpChonngay;
+        private DateTimePicker dtpChonngaydau;
         private DataGridView dgvThongKe;
         private Button btnThongKe;
+        private Label label1;
+        private DateTimePicker dtpChonngaycuoi;
     }
 }

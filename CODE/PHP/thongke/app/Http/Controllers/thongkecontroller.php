@@ -18,10 +18,13 @@ class thongkecontroller extends Controller
     public function ketqua(Request $request)
     {
         $request->validate([
-            'ngay' => 'required|date',
+            'ngaydau' => 'required|date',
+            'ngaycuoi' => 'required|date',
         ]);
 
-        $ngay = $request->ngay;
+        $ngaydau = $request->input('ngaydau');
+        $ngaycuoi = $request->input('ngaycuoi');
+
 
         $duLieu = DB::table('DonHang')
             ->join('KhachHang', 'DonHang.MaKH', '=', 'KhachHang.MaKH')
@@ -34,12 +37,13 @@ class thongkecontroller extends Controller
                 'MatHang.DonGia as gia',
                 DB::raw('ChiTietDonHang.SoLuong * MatHang.DonGia as thanh_tien')
             )
-            ->whereDate('DonHang.NgayLap', $ngay)
+            ->whereBetween('DonHang.NgayLap', [$ngaydau, $ngaycuoi])
             ->get();
 
 
 
-        return view('ketqua', compact('duLieu', 'ngay'));
+
+        return view('ketqua', compact('duLieu', 'ngaydau', 'ngaycuoi'));
     }
 
     /**

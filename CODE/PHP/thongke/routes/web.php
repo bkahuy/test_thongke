@@ -10,5 +10,3 @@ Route::get('/thong-ke', function () {
 });
 Route::post('/thong-ke', [ThongKeController::class, 'ketqua']);
 
-
-

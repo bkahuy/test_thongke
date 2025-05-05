@@ -41,9 +41,10 @@ namespace QuanLyThongKe
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
-            string date = dtpChonngay.Value.ToString("yyyy-MM-dd");
+            string datedau = dtpChonngaydau.Value.ToString("yyyy-MM-dd");
+            string datecuoi = dtpChonngaycuoi.Value.ToString("yyyy-MM-dd");
             cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT kh.TenKH as 'Tên khách hàng', mh.TenHang as 'Tên mặt hàng', ct.SoLuong as 'Số lượng', mh.DonGia as 'Đơn giá', (ct.SoLuong * mh.DonGia) AS ThanhTien FROM DonHang dh JOIN KhachHang kh ON dh.MaKH = kh.MaKH JOIN ChiTietDonHang ct ON dh.MaDH = ct.MaDH JOIN MatHang mh ON ct.MaHang = mh.MaHang WHERE dh.NgayLap = '" + date + "' ORDER BY kh.TenKH;";
+            cmd.CommandText = "SELECT kh.TenKH as 'Tên khách hàng', mh.TenHang as 'Tên mặt hàng', ct.SoLuong as 'Số lượng', mh.DonGia as 'Đơn giá', (ct.SoLuong * mh.DonGia) AS ThanhTien FROM DonHang dh JOIN KhachHang kh ON dh.MaKH = kh.MaKH JOIN ChiTietDonHang ct ON dh.MaDH = ct.MaDH JOIN MatHang mh ON ct.MaHang = mh.MaHang WHERE dh.NgayLap BETWEEN '" + datedau + "' AND '" + datecuoi + "' ORDER BY kh.TenKH;";
             adapter.SelectCommand = cmd;
             dt.Clear();
             adapter.Fill(dt);

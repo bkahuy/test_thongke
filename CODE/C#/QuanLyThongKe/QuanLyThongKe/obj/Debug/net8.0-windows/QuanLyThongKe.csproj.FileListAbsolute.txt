@@ -46,3 +46,4 @@ D:\Nam3\TEST_JOB\CODE\C#\QuanLyThongKe\QuanLyThongKe\obj\Debug\net8.0-windows\re
 D:\Nam3\TEST_JOB\CODE\C#\QuanLyThongKe\QuanLyThongKe\obj\Debug\net8.0-windows\QuanLyThongKe.pdb
 D:\Nam3\TEST_JOB\CODE\C#\QuanLyThongKe\QuanLyThongKe\obj\Debug\net8.0-windows\QuanLyThongKe.genruntimeconfig.cache
 D:\Nam3\TEST_JOB\CODE\C#\QuanLyThongKe\QuanLyThongKe\obj\Debug\net8.0-windows\ref\QuanLyThongKe.dll
+D:\Nam3\TEST_JOB\CODE\C#\QuanLyThongKe\QuanLyThongKe\obj\Debug\net8.0-windows\QuanLyThongKe.sourcelink.json

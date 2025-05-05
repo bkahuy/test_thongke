@@ -69,7 +69,6 @@ INSERT INTO DonHang (NgayLap, MaKH) VALUES
 ('2024-12-31', 3);
 
 INSERT INTO ChiTietDonHang VALUES 
-(6, 4, 3),
 (1, 1, 2),
 (1, 2, 3),
 (2, 4, 1),
@@ -78,7 +77,10 @@ INSERT INTO ChiTietDonHang VALUES
 (3, 2, 1),
 (4, 2, 5),
 (5, 4, 2),
-(5, 3, 5);
+(5, 3, 5),
+(6, 4, 3);
+
+delete ChiTietDonHang
 
 SELECT 
     dh.NgayLap,
@@ -91,7 +93,7 @@ FROM DonHang dh
 JOIN KhachHang kh ON dh.MaKH = kh.MaKH
 JOIN ChiTietDonHang ct ON dh.MaDH = ct.MaDH
 JOIN MatHang mh ON ct.MaHang = mh.MaHang
-ORDER BY dh.NgayLap, kh.TenKH;
+where dh.NgayLap between '2024-01-01' and '2024-12-31' ORDER BY kh.TenKH;
  
 
  SELECT kh.TenKH as 'Tên khách hàng', 
@@ -106,4 +108,4 @@ ORDER BY dh.NgayLap, kh.TenKH;
  ON dh.MaDH = ct.MaDH 
  JOIN MatHang mh 
  ON ct.MaHang = mh.MaHang
- WHERE dh.NgayLap = '2023-12-11' ORDER BY kh.TenKH;
+ WHERE dh.NgayLap = '2024-12-31' ORDER BY kh.TenKH;
